@@ -1,0 +1,29 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "lint": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haijee/leetcode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haijee/leetcode/issues"
+  },
+  "homepage": "https://github.com/haijee/leetcode#readme",
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6"
+  },
+  "lint-staged": {
+    "src/**/*.{js.vue}": ["prettier --write","esslint --cache --fix","git add"]
+  }
+}
