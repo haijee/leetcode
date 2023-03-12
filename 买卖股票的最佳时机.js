@@ -1,5 +1,5 @@
 const prices = [7, 1, 5, 3, 6, 4];
-var maxProfit = function (prices) {
+var maxProfit1 = function (prices) {
   if (prices.length === 0) return 0;
   let minPrice = prices[0];
   let result = 0;
@@ -8,7 +8,25 @@ var maxProfit = function (prices) {
     minPrice = Math.min(currPrice, minPrice);
     result = Math.max(result, currPrice - minPrice);
   }
-  return result
+  return result;
 };
 
-console.log(maxProfit(prices));
+console.log(maxProfit1(prices));
+
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit2 = function (prices) {
+  let profit = 0;
+  for (let i = 1; i < prices.length; i++) {
+    const curr = prices[i];
+    prev = prices[i - 1];
+    if (curr > prev) {
+      profit += curr - prev;
+    }
+  }
+  return profit
+};
+
+console.log(maxProfit2(prices));
