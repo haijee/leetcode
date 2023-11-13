@@ -11,9 +11,9 @@ var climbStairs = function (n) {
   for (let i = 2; i < n; i++) {
     db[i] = db[i - 1] + db[i - 2];
   }
-  return db[n-1];
+  return db[n - 1];
 };
-console.log(climbStairs(2))
+console.log(climbStairs(2));
 
 // 2阶 2种
 // 3阶 3种
@@ -31,3 +31,14 @@ var climbStairs = function (n) {
   return r;
 };
 console.log(climbStairs(1));
+
+// 使用最小花费爬楼梯
+function minCostClimbingStairs(cost) {
+  const n = cost.length;
+  const dp = new Array(n + 1);
+  dp[0] = dp[1] = 0;
+  for (let i = 2; i < cost; i++) {
+    dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+  }
+  return dp[n];
+}

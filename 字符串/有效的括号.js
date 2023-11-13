@@ -4,7 +4,8 @@
  */
 
 // '('，')'，'{'，'}'，'['，']'
-const s = "()[]{}";
+const s = "(){[]{}";
+
 var isValid = function (s) {
   const n = s.length;
   if (n % 2 === 1) {
@@ -35,3 +36,21 @@ var isValid = function (s) {
 };
 
 console.log(isValid(s));
+
+// 优化版本
+function isValid2(s) {
+  let stack = [];
+  for (let str of s) {
+    if (str === "(") {
+      stack.push(")");
+    } else if (str === "{") {
+      stack.push("}");
+    } else if (str === "[") {
+      stack.push("]");
+    } else if (stack.pop() !== str) {
+      return false;
+    }
+  }
+  return !stack.length
+}
+console.log(isValid2(s));
