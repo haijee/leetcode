@@ -1,3 +1,4 @@
+
 var merge = function (intervals) {
     let res = [];
     intervals.sort((a, b) => a[0] - b[0]);
